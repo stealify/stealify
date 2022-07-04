@@ -18,6 +18,10 @@ The Stealify Lang Language Agnostic Language creation Framework (equal to Projec
 ## Tribute to the Clean Code Project in general
 It is a good project and we enforce many patterns that get teached there please support it as long as the creator is Alive he is a good Person. His Main Contribution to this Project is that we enforce and enable TDD by Default while we did design the Tests and Interfaces Carefully so decoupled that we can extend anything anywhere in the Coding Language World and Run Test as soon as we Write to reduce failures even before the code is fully written. I hope you like that! We catch up with the best and combine the knowleg of all existing Oldschool Coders in One Gigant Project to Replace and Scale Code Teachers.
 
+## Tribute to DJ Ware on Youtube
+He Identifyed the same Problems and issues but out of a total diffrent viewpoint so Invest into a Section only to Answer his Proposals
+see: Issues Don Ware - *
+
 ## Getting started
 You need a Desktop PC Running any OS That Supports NodeJS or @stealify/engine install @stealify/engine-arch-os@latest or NodeJS@current + @stealify/engine
 

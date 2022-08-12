@@ -1,43 +1,105 @@
 # @stealify/stealify
-Stealify Lang - Is an ECMAScript Inspired Polyglot Language
+Stealify a Operating System Agnostic Implementation of a Fuchsia Compatible Operating System. Designed to build Applications and Services that run Everywhere. From Mobile to Embedded till Desktop on Any Operating System. It aims 100% Fuchsia Compatability on Any Kernel or OS.
 
-can create cross-platform desktop applications using any Language even Polyglot with any Browser that implements: Devtools Protocol, ECMAScript / JavaScript, WASM, HTML and CSS. For Example, Opera, Safari, Firefox, Chromium. So it is a DropIn Replacement for NWJS or Electron while it also works
-with existing Electron and NWJS Projects and can be applyed Incremental. See: Incremental Convert a Electron App to Stealify.
+This allows to directly run Fuchsia Components on Linux, MacOS, Windows.
 
-Its main difference is that it does Compile down to whole Unikernels/CloudImages/Containers/AppImages/Platform Specific Binary Builds and other virtual machines it does also provides a Unified Compiler Feedback Interface to gather Metrics and Profiling as also Other Compiler Feedback while Running and While Building this allows you to KI Optimize your Already Deployed Applications while you code on them. Our default algo is bayesian. Because Fast Feedback while coding leads to faster Working Software! See: Stealify Compiler Feedback Interface and look into the Implementations to learn more. 
+Understand the core principles behind Stealify and explore how Stealify creates a foundation for developers to create long-lasting products and experiences across a broad range of devices and Operating Systems.
 
-The Project is Created by Frank Lemanschik after more than 15 years of research. All Self Financed because of my own needs while Freelancing as IT Consultant it Resulted most out of frustration with the existing Solutions to code Cross-Platform Web Driven Applications with Java, Electron and or NWJS. As also the removal of Browser API's like nacl and others that allow to integrate native code into the browser platform while it was never optimal to compile or install extensions directly with a new browser as that leads to the need to maintain that platform also. 
+## Architecture
+The following architectural principles guide Stealify's design and development:
 
-It's main goal is to transport a hugh amount of knowleg into something that Stays longer then my Human Body. It is part of my "Web Driven Applications Standard" Project aka WDA. Web Driven Apps are Native Apps that take advantage of Browser features and so use at last Partial code that would run in a Browser or Interact with code that runs in a Browser or other devtools protocol enabled runtimes.
+Simple: Stealify makes it easy to create, maintain, and integrate software and hardware across a wide range of devices.
 
-## Why?
-Original Text: Frank Lemanschik 01.04.2022 - I was confident in coding since I was 10 years old but then I got the first customers and learned how hard it is to maintain code that is deployed elsewhere. I needed to address issues that I simply never got on my system or systems. With more and more years of experience, I found out where the Problem root is in the Whole Industrie I spoke to a lot of engineers of Organisations of all Sizes. From Google to Cloudflare to Microsoft over Oracle, I got them all. I followed Carefully everything they are doing and tried to see the why and how it is useful. I started to See my Self as a Stakeholder in some bigger Projects and tried to successfully influence them. As I did that I found out that I got Communication issues and I started to work on that.
+Secure: Stealify has a software model designed for modern computing.
 
-As I got all covered I thought it is clever to teach others what I learned then I found out that does not Scale then I remembered IDE Tooling and Intellisense and Finally got the Final Vision I Put it together with what I learned from Projects like Oracle GraalVM, Rust Lang, As also many other Projects and throw all my old Concepts away! So the King is Dead (Stealify Patterns and tools) long live the King @stealify/stealify The Coding Lang that inheres most other coding langs + gives them new on build/runtime debug abilities. 
+Updatable: As a modular operating system, Stealify allows the kernel, drivers, and software components to be independently updatable.
 
-## How?
-As said in the why? section it is the Feedback that teaches the Coder and Users at the same time when you get fast feedback you get a nice fast learning curve over the last years that teaching system got improved more and more and is de facto the most efficient and fast one. You learn only what you need to learn while u are using and doing it. Fun Fact the Amount of Coders Doubels every 7 years(Calculated 2020) was 5 years https://blog.cleancoder.com/uncle-bob/2014/06/20/MyLawn.html please read that carefully to even understand the Problem!
+Performant: Stealify is designed for real world product requirements and optimized for performance.
 
-The Stealify Lang Language Agnostic Language creation Framework (equal to Project Truffle from Oracle) gives Developers an OpenSource Solution to cover the Problem it allows them to provide feedback and work on that feedback as the community at last that's the Idea behind that the time will show if they accept it but since we base on for example Java Language Tooling and Typescript as also ESLint and many other Big Projects with Millions of users already and Algin all that it should get Accepted by the Community as soon as it is aware of all that. I Predict that not many Engineers will see and understand this Project right but when that time should happen I am 100% Confident that this is the final solution after that it is only a matter of time. I am sure that Stealify has the Potential to be the last Coding Language as I designed it to be Syntax Agnostic there are no excuses but sure as always you can reimplement all that in your favorit language like truffle did it in Java but truffle is missing the Bigger Picture as it only targets language conversation and has no bigger context like Stealify which targets a whole System and not a single Component. The Stealify Lang Project offers a framework for ECMAScript / JavaScript to Code Cross Platform Desktop and headless Apps reusing a lot of existing Mostly ECMAScript based Open Source Projects.
+The core of the system is a collection of libraries for handling system startup and bootstrapping. 
+All other system components are implemented in user space and isolated, reinforcing the principle of least privilege. 
+This includes:
 
-## Tribute to the Clean Code Project in general
-It is a good project and we enforce many patterns that get teached there please support it as long as the creator is Alive he is a good Person. His Main Contribution to this Project is that we enforce and enable TDD by Default while we did design the Tests and Interfaces Carefully so decoupled that we can extend anything anywhere in the Coding Language World and Run Test as soon as we Write to reduce failures even before the code is fully written. I hope you like that! We catch up with the best and combine the knowleg of all existing Oldschool Coders in One Gigant Project to Replace and Scale Code Teachers.
+- Device drivers (driver_manager.cm)
+- Filesystems (fshost.cm)
+- Network stacks (netsvc.cm)
 
-## Tribute to DJ Ware on Youtube
-He Identifyed the same Problems and issues but out of a total diffrent viewpoint so Invest into a Section only to Answer his Proposals
-see: Issues Don Ware - *
+this architecture enables Stealify to reduce the amount of trusted code running in the system to a few core functions:
 
-## Getting started
-You need a Desktop PC Running any OS That Supports NodeJS or @stealify/engine install @stealify/engine-arch-os@latest or NodeJS@current + @stealify/engine
+- Memory management
+- Scheduling
+- Inter-process communication
+- process management
+
+Software may or may not run within the confines of a single process. Jobs allow "applications" that are composed of more than one process to be controlled as a single entity. Even Running a Desktop Application is a Job in Stealify Terminologie.
 
 ```
-@stealify/engine-arch-os@latest or NodeJS@current + @stealify/engine are Equal on all systems
+TASK                     PSS PRIVATE  SHARED   STATE NAME
+j: 1027               507.8M  507.4M                 root
+  p: 1061             564.4k    564k     36k         bin/bootsvc
+  p: 1150            4264.4k   4264k     36k         bin/component_manager
+  j: 1479             228.4k    228k
+    p: 1583           228.4k    228k     36k         pwrbtn-monitor.cm
+  j: 1484             532.4k    532k
+    p: 1599           532.4k    532k     36k         svchost.cm
+  j: 1544             402.4k    304k
+    p: 1633           402.4k    304k    232k         netsvc.cm
+  j: 1681             296.4k    296k
+    p: 1733           296.4k    296k     36k         console-launcher.cm
+  j: 1799            7232.4k   7232k
+    p: 1825          7232.4k   7232k     36k         archivist.cm
+  j: 1927             660.4k    660k
+    p: 1955           660.4k    660k     36k         base-resolver.cm
+  j: 2072            1016.4k   1016k
+    p: 2088          1016.4k   1016k     36k         driver_manager.cm
+  j: 2239             348.4k    348k
+    p: 2252           348.4k    348k     36k         device-name-provider.cm
+  j: 2364             275.3M  275.3M
+    p: 2380          1012.4k   1012k     36k         fshost.cm
+    p: 6544           252.1M  252.1M     36k         /pkg/bin/blobfs
+    p: 10205         9744.4k   9744k     36k         /pkg/bin/minfs
+    p: 10475           12.8M   12.8M     36k         pkgfs
+```
+Let's focus on two columns in the output for now:
+
+TASK: This tells you whether each entry is a job (j) or process (p) followed by their unique id.
+NAME: This provides a little more detail about what piece of the system is running there.
+Let's break down some interesting things here based on what we've discussed so far:
+
+Every process is connected to a parent job. Some jobs have multiple processes.
+All jobs trace back to the root job as the ultimate parent, forming a tree.
+During startup, the system launches a few processes directly into the root job. Most other processes are launched under their own parent jobs.
+After the initial startup work, many of the entries have a .cm extension. These refer to components, and you will learn more about them later on.
+Some of these components are core services like filesystems (fshost.cm) and drivers (driver_manager.cm) that live in user space separate from the kernel.
+
+## Software Isolation Model
+As everything runs as Component it runs isolated.
+
+/stealify/children/core/children/network/children/http-client
+```
+client
+children
+component_type
+debug
+exec
+id
+moniker
+resolved
+url
 ```
 
-@stealify/engine-desktop installs the correct chromium version for the current system and arch and is a addtional package for @stealify/engine-arch-os@latest or NodeJS@current
+./exec/in/svc contains services provided to the component.
+```
+logger.LogSink
+net.name.Lookup
+posix.socket.Provider
+```
 
-## Design
-Stealify is designed to run in ECMAScript Engines that Implement at last the current ECMAScript Standard. It offers a framework to create and expose Stealifys API's via Host Objects inside any ECMAScript Compatible Engine (Deno, NodeJS, GraalJS, V8, SpiderMonkey, ...any other).
+Components provide system services through their outgoing directory, which is mapped to the exec/out path inside the hub. 
+exec/out/svc 
+```
+http.Loader
+```
 
-The Stealify Compiler tools are language agnostic and offer a Framework to integrate any language and expose it inside the ECMAScript Engine.
+Each service is accsesible over a well-known protocol defined by any Stealify Suported IDL Interface Definition Language Interface(client);
 

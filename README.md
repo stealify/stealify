@@ -95,11 +95,24 @@ net.name.Lookup
 posix.socket.Provider
 ```
 
-Components provide system services through their outgoing directory, which is mapped to the exec/out path inside the hub. 
-exec/out/svc 
+Components provide system services through their outgoing directory, which is mapped to the exec/out path inside stealify. 
+
+./exec/out/svc 
 ```
 http.Loader
 ```
+Each service is accsesible over a well-known protocol defined by any Stealify Suported IDL Interface Definition Language defined Interface that
+can optional generate clients for diffrent coding languages for faster integration;
 
-Each service is accsesible over a well-known protocol defined by any Stealify Suported IDL Interface Definition Language Interface(client);
-
+## Current Goals
+Support all ECMAScript Engines on All Platforms. And Offer a Universal platform indipendent Fuchsia OS Compatible Component System that byPasses OS Vendor Stores and lock-ins in a secure way. Short Version Create Interface Definitions for Common Software that allows writting Platform and Arch Agnostic Source that offers a pre compiled binary client that you can use in your software this way your Main Code does never need to change when the Platform or Arch changes where it gets build and runned reduces Testing and Development time.
+- [ ] Implementation of a Uinversal ABI based Build System for ECMAScript Engines
+- [ ] Implementation of a ECMAScript written XMake Compatible Build System
+  - [ ] (lua) parser sbffi calls 
+- [ ] get Fuchsia OS Feature Pairity Written in ECMAScript. 
+  - [ ] Evaluate sharedBuffer struct ffi calls 
+  - [ ] Implementation of libnode.so usign FIDL 
+  - [ ] Implementation of libv8.so usign FIDL
+  - [ ] Implementation of libnode.so usign FIDL should also Compile with graal-node
+  - [ ] Implementation of FIDL and the Component Manager
+    - [ ] Implementation of a Zircon Kernel using the same Interfaces.

@@ -1,5 +1,7 @@
 # @stealify/stealify
-Stealify a Operating System Agnostic Implementation of a Fuchsia Compatible Operating System. Designed to build Applications and Services that run Everywhere. From Mobile to Embedded till Desktop on Any Operating System. It aims 100% Fuchsia Compatability on Any Kernel or OS.
+Stealify a Operating System Agnostic Implementation of a Fuchsia Compatible Operating System. Designed to build Applications and Services that run Everywhere. From Mobile to Embedded till Desktop PC's as any maybe already installed Operating System. 
+
+It aims 100% Fuchsia OS Compatability on Any Kernel or OS via a ECMAScript written Zircon Kernel Implementation Exposing the same Interfaces.
 
 This allows to directly run Fuchsia Components on Linux, MacOS, Windows.
 
@@ -31,7 +33,8 @@ this architecture enables Stealify to reduce the amount of trusted code running 
 - Inter-process communication
 - process management
 
-Software may or may not run within the confines of a single process. Jobs allow "applications" that are composed of more than one process to be controlled as a single entity. Even Running a Desktop Application is a Job in Stealify Terminologie.
+Software may or may not run within the confines of a single process. Jobs allow "applications" that are composed of more than one process to be controlled as a single entity. Even Running a Desktop Application is a Job in Stealify Terminologie. the Interface Language Definition Makes
+Scheduling and Inter-process communication audit and predict able.
 
 ```
 TASK                     PSS PRIVATE  SHARED   STATE NAME

@@ -1,121 +1,53 @@
 # @stealify/stealify
-Stealify a Operating System Agnostic Implementation of a Fuchsia Compatible Operating System. Designed to build Applications and Services that run Everywhere. From Mobile to Embedded till Desktop PC's as any maybe already installed Operating System. 
 
-It aims 100% Fuchsia OS Compatability on Any Kernel or OS via a ECMAScript written Zircon Kernel Implementation Exposing the same Interfaces.
+## What is Stealify?
+This open-source, multi-language (Polyglot) build tool saves developers time with faster, reproducible builds & tests. As also adds a Universal Polyglot Capability Based RPC ABI that is transport Agnostic and so works on all Platforms and Architectures think about it as Platform Agnostic Typed IPC that gets generated out of a Component Interface Definition. Overall it Combines the best of all Build Tools while using it self as Interface Definition Language. Something like the concept of SelfExplaining Code. 
 
-This allows to directly run Fuchsia Components on Linux, MacOS, Windows.
+Expressing Intent, not Implementation
+Guessing Intent from existing Implementation
+Type Safety(ish) 
+Increase spec -> implementation speed
+More natural framework for analysis and correctness
+Abstraction for external contributors
+Simple Semantics - Operations map simply to any Kind of Function even Polyglot or the CodeStubAssembler. 
+Always correct write barrier elimination
+Load elimination
+Bounds check verification/elimination
+static_assert -> compilation-type errors
+Capability based offers Pre/post conditions for invocation/call protocol
 
-Understand the core principles behind Stealify and explore how Stealify creates a foundation for developers to create long-lasting products and experiences across a broad range of devices and Operating Systems.
+### So how does it work?
+Stealify analyzes, caches and distributes builds, as also offers you advanced code generation out of existing Source Code and or Artifacts.
 
-## Architecture
-The following architectural principles guide Stealify's design and development:
+Stealify is proud to be part of the community of passionate developers who contribute to Chromium and all its Related Projects like: Android, Fuchsia, v8, TuruboFan, LLVM, CodeStubAssembler, Bazel, GN, Ninja, CMake, npm
 
-Simple: Stealify makes it easy to create, maintain, and integrate software and hardware across a wide range of devices.
+Our Mission is to Reduce the Overlapp between all that Projects and allow it to cross platform build and use the Projects. We do so by moving Project
+indipendent Parts into a Isolated Typed Callable State and in that step we evaluate rules for build tools to get code Generated to Automate that process.
+As it is essential to speed up development. We reduce the Technical Debt During the planning or execution of a software project, decisions are made to defer necessary work. For example:
+- It's too late in the LifeCycle to upgrade to the new release of the compiler. We'll do it next time around.
+- We're not completely conforming to the UserInterface guidelines. We'll get to it next time.
+- We don't have time to uncruft (refactor, see RefactorMercilessly) the hyper-widget code. Punt until next time.
+The list can grow quite long, with some items surviving across multiple development cycles. A big pile of deferred work can gum up a project, yet many of the items on the list don't appear on a project team's radar, especially if the focus is primarily on new product features. Yet removing accumulated sludge needs to be accounted for in planning!
+Therefore: Make the debt visible. Keep an explicit TechnicalDebtList. Group deferred tasks into workable units, note the consequences of leaving each unit unattended. Keep the list visible. Make sure that Marketing knows that the list exists, and repeat the mantra "If we don't schedule time to pay off TechnicalDebt, you might not get all of the new features that you want." Allow time on the schedule for EntropyReduction, and keep the debt manageable. --DaveSmith
+Clarifications (driven from the discussion in FirstLawOfProgramming):
+Technical Debt includes those internal things that you choose not to do now, but which will impede future development if left undone. This includes deferred refactoring.
+Technical Debt doesn't include deferred functionality, except possibly in edge cases where delivered functionality is "good enough" for the customer, but doesn't satisfy some standard (e.g., a UI element that isn't fully compliant with some UI standard).
+TechnicalDebt is a measure of how untidy or out-of-date the development work area for a product is. --DaveSmith
 
-Secure: Stealify has a software model designed for modern computing.
-
-Updatable: As a modular operating system, Stealify allows the kernel, drivers, and software components to be independently updatable.
-
-Performant: Stealify is designed for real world product requirements and optimized for performance.
-
-The core of the system is a collection of libraries for handling system startup and bootstrapping. 
-All other system components are implemented in user space and isolated, reinforcing the principle of least privilege. 
-This includes:
-
-- Device drivers (driver_manager.cm)
-- Filesystems (fshost.cm)
-- Network stacks (netsvc.cm)
-
-this architecture enables Stealify to reduce the amount of trusted code running in the system to a few core functions:
-
-- Memory management
-- Scheduling
-- Inter-process communication
-- process management
-
-Software may or may not run within the confines of a single process. Jobs allow "applications" that are composed of more than one process to be controlled as a single entity. Even Running a Desktop Application is a Job in Stealify Terminologie. the Interface Language Definition Makes
-Scheduling and Inter-process communication audit and predict able.
-
-```
-TASK                     PSS PRIVATE  SHARED   STATE NAME
-j: 1027               507.8M  507.4M                 root
-  p: 1061             564.4k    564k     36k         bin/bootsvc
-  p: 1150            4264.4k   4264k     36k         bin/component_manager
-  j: 1479             228.4k    228k
-    p: 1583           228.4k    228k     36k         pwrbtn-monitor.cm
-  j: 1484             532.4k    532k
-    p: 1599           532.4k    532k     36k         svchost.cm
-  j: 1544             402.4k    304k
-    p: 1633           402.4k    304k    232k         netsvc.cm
-  j: 1681             296.4k    296k
-    p: 1733           296.4k    296k     36k         console-launcher.cm
-  j: 1799            7232.4k   7232k
-    p: 1825          7232.4k   7232k     36k         archivist.cm
-  j: 1927             660.4k    660k
-    p: 1955           660.4k    660k     36k         base-resolver.cm
-  j: 2072            1016.4k   1016k
-    p: 2088          1016.4k   1016k     36k         driver_manager.cm
-  j: 2239             348.4k    348k
-    p: 2252           348.4k    348k     36k         device-name-provider.cm
-  j: 2364             275.3M  275.3M
-    p: 2380          1012.4k   1012k     36k         fshost.cm
-    p: 6544           252.1M  252.1M     36k         /pkg/bin/blobfs
-    p: 10205         9744.4k   9744k     36k         /pkg/bin/minfs
-    p: 10475           12.8M   12.8M     36k         pkgfs
-```
-Let's focus on two columns in the output for now:
-
-TASK: This tells you whether each entry is a job (j) or process (p) followed by their unique id.
-NAME: This provides a little more detail about what piece of the system is running there.
-Let's break down some interesting things here based on what we've discussed so far:
-
-Every process is connected to a parent job. Some jobs have multiple processes.
-All jobs trace back to the root job as the ultimate parent, forming a tree.
-During startup, the system launches a few processes directly into the root job. Most other processes are launched under their own parent jobs.
-After the initial startup work, many of the entries have a .cm extension. These refer to components, and you will learn more about them later on.
-Some of these components are core services like filesystems (fshost.cm) and drivers (driver_manager.cm) that live in user space separate from the kernel.
-
-## Software Isolation Model
-As everything runs as Component it runs isolated.
-
-/stealify/children/core/children/network/children/http-client
-```
-client
-children
-component_type
-debug
-exec
-id
-moniker
-resolved
-url
-```
-
-./exec/in/svc contains services provided to the component.
-```
-logger.LogSink
-net.name.Lookup
-posix.socket.Provider
-```
-
-Components provide system services through their outgoing directory, which is mapped to the exec/out path inside stealify. 
-
-./exec/out/svc 
-```
-http.Loader
-```
-Each service is accsesible over a well-known protocol defined by any Stealify Suported IDL Interface Definition Language defined Interface that
-can optional generate clients for diffrent coding languages for faster integration;
 
 ## Current Goals
 Support all ECMAScript Engines on All Platforms. And Offer a Universal platform indipendent Fuchsia OS Compatible Component System that byPasses OS Vendor Stores and lock-ins in a secure way. Short Version Create Interface Definitions for Common Software that allows writting Platform and Arch Agnostic Source that offers a pre compiled binary client that you can use in your software this way your Main Code does never need to change when the Platform or Arch changes where it gets build and runned reduces Testing and Development time.
 - [ ] Implementation of a Uinversal ABI based Build System for ECMAScript Engines
-- [ ] Implementation of a ECMAScript written XMake Compatible Build System
+  - [ ] Generator for GraalVM generates .d.ts files as also .js files containing Java.type('java.io.File')
+  - [ ] Bazel (Java) interOp (Android Build)
+    - [ ] Replace Bazel Methods with GraalVM Once
+    - [ ] Create Bazel native image including Capability based invocation/call api
+  - [ ] Generate Java.type() to Torque or other code gen
+  - [ ] Generate and consume GN interOp
+  - [ ] Implementation of a ECMAScript written XMake Compatible Build System
   - [ ] (lua) parser sbffi calls 
-- [ ] get Fuchsia OS Feature Pairity Written in ECMAScript. 
+  - [ ] get Fuchsia OS Feature Pairity Written in ECMAScript. Mainly Scheduling and Channels as also syscalls via asm if needed
   - [ ] Evaluate sharedBuffer struct ffi calls 
-  - [ ] Implementation of libnode.so usign FIDL 
-  - [ ] Implementation of libv8.so usign FIDL
-  - [ ] Implementation of libnode.so usign FIDL should also Compile with graal-node
-  - [ ] Implementation of FIDL and the Component Manager
-    - [ ] Implementation of a Zircon Kernel using the same Interfaces.
+  - [ ] Implementation of a FIDL Wire Compatible Export for CapNProto
+  - [ ] Implementation of a Zircon Kernel API using the same Interfaces.
+  - [ ] Adjustable NodeJS Compatible cross Platform v8::Isolate based builds.

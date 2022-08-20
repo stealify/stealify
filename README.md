@@ -27,8 +27,10 @@ As it is essential to speed up development. We reduce the Technical Debt During 
 - It's too late in the LifeCycle to upgrade to the new release of the compiler. We'll do it next time around.
 - We're not completely conforming to the UserInterface guidelines. We'll get to it next time.
 - We don't have time to uncruft (refactor, see RefactorMercilessly) the hyper-widget code. Punt until next time.
+
 The list can grow quite long, with some items surviving across multiple development cycles. A big pile of deferred work can gum up a project, yet many of the items on the list don't appear on a project team's radar, especially if the focus is primarily on new product features. Yet removing accumulated sludge needs to be accounted for in planning!
 Therefore: Make the debt visible. Keep an explicit TechnicalDebtList. Group deferred tasks into workable units, note the consequences of leaving each unit unattended. Keep the list visible. Make sure that Marketing knows that the list exists, and repeat the mantra "If we don't schedule time to pay off TechnicalDebt, you might not get all of the new features that you want." Allow time on the schedule for EntropyReduction, and keep the debt manageable. --DaveSmith
+
 Clarifications (driven from the discussion in FirstLawOfProgramming):
 Technical Debt includes those internal things that you choose not to do now, but which will impede future development if left undone. This includes deferred refactoring.
 Technical Debt doesn't include deferred functionality, except possibly in edge cases where delivered functionality is "good enough" for the customer, but doesn't satisfy some standard (e.g., a UI element that isn't fully compliant with some UI standard).

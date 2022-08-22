@@ -1,5 +1,19 @@
 # @stealify/stealify
 
+## Repository Design
+- https://github.com/stealify-backports === stakeholders
+- https://github.com/stealify/* === Maintained by Stealify Contributors
+- Collections
+  - platform_libs/ - A Collection of currated cross platform libs including build instructions and WiP Build Unified Build Tool.
+    - stealify_libs - Wrappers around Common Platform dependent libs to expose them with a Standard API.
+  - arch_libs/ - A Collection of CPU Architecture Related Libs mostly used by compiler infrastructure. overlapps by design with platform_libs.
+  - platform specific has overlapp with platform_libs by design
+    - windows_libs
+    - macos_libs
+    - ios_libs
+    - android_libs
+    - fuchsia
+
 ## What is Stealify?
 This open-source, multi-language (Polyglot) build tool saves developers time with faster, reproducible builds & tests. As also adds a Universal Polyglot Capability Based RPC ABI that is transport Agnostic and so works on all Platforms and Architectures think about it as Platform Agnostic Typed IPC that gets generated out of a Component Interface Definition. Overall it Combines the best of all Build Tools while using it self as Interface Definition Language. Something like the concept of SelfExplaining Code. 
 
@@ -14,7 +28,7 @@ Always correct write barrier elimination
 Load elimination
 Bounds check verification/elimination
 static_assert -> compilation-type errors
-Capability based offers Pre/post conditions for invocation/call protocol
+Capability based offers Pre/post conditions for invocation/call protocol think about it like RPC GRPC Something to Call Functions.
 
 ### So how does it work?
 Stealify analyzes, caches and distributes builds, as also offers you advanced code generation out of existing Source Code and or Artifacts.
@@ -31,7 +45,7 @@ As it is essential to speed up development. We reduce the Technical Debt During 
 The list can grow quite long, with some items surviving across multiple development cycles. A big pile of deferred work can gum up a project, yet many of the items on the list don't appear on a project team's radar, especially if the focus is primarily on new product features. Yet removing accumulated sludge needs to be accounted for in planning!
 Therefore: Make the debt visible. Keep an explicit TechnicalDebtList. Group deferred tasks into workable units, note the consequences of leaving each unit unattended. Keep the list visible. Make sure that Marketing knows that the list exists, and repeat the mantra "If we don't schedule time to pay off TechnicalDebt, you might not get all of the new features that you want." Allow time on the schedule for EntropyReduction, and keep the debt manageable. --DaveSmith
 
-Clarifications (driven from the discussion in FirstLawOfProgramming):
+## Clarifications (driven from the discussion in FirstLawOfProgramming):
 Technical Debt includes those internal things that you choose not to do now, but which will impede future development if left undone. This includes deferred refactoring.
 Technical Debt doesn't include deferred functionality, except possibly in edge cases where delivered functionality is "good enough" for the customer, but doesn't satisfy some standard (e.g., a UI element that isn't fully compliant with some UI standard).
 TechnicalDebt is a measure of how untidy or out-of-date the development work area for a product is. --DaveSmith
@@ -53,3 +67,7 @@ Support all ECMAScript Engines on All Platforms. And Offer a Universal platform 
   - [ ] Implementation of a FIDL Wire Compatible Export for CapNProto
   - [ ] Implementation of a Zircon Kernel API using the same Interfaces.
   - [ ] Adjustable NodeJS Compatible cross Platform v8::Isolate based builds.
+
+
+## WiP
+- [ ] - Getting The GitHub Orgs Cleaned eg: stealify-backports, stealify in shape and automated as also clean up and automate.

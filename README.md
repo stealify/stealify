@@ -1,4 +1,23 @@
 # @stealify/stealify
+The shortest expressiv description is that Stealify Lang is a GraalVM Compitor at present build mainly with c++, Rust, Asm Running via v8.
+
+## Diffrences between Stealify Lang ruunning on StealifyVM and GraalVM
+- GraalVM is Mainly build using the JVM Platform Stealify uses v8 and the Chromium Project.
+- Both got InterOp via Multiple Interfaces.
+- Stealify as it uses a ECMAScript / TypeScript Compatible Syntax often works without Refactoring or even compiling the code again in diffrent Environments.
+- Stealify Not Only Includes what GraalVM Includes:
+  - Offers Advanced Packaging / Maintainance / Development and other LifeCycle Systems that are GraalVM Compatible. 
+  - It is designed to write your Application Once and then minimize the need for changes.
+  - It can Produce GraalVM Powered Native Images as also can run GraalVM it self as it also includes a own Kernel/HAL/DBUS implementations.
+  - Offers tools to build binary compatible components that interact via well known and defined Protocols to eleminate Security Risks.
+  - It defines a Dynamic Language that can change behavior on Runtime or Build time so you code can run on any Architecture or Platform
+  - It defines a Universal Secure Isolated: Hardware / Software / Component Model.
+  - Inlcudes own Universal Kernel that does not even need to be Cross Platform Binary Compatible so is able to get Used as own Linux/Fuchsia/Android/Windows Kernel Abstraction that is able to build Custom Kernels and even Unikernels that you can directly deploy to your hardware
+  - Includes universal Deployment/CI to automate the above described Creation of Software that Includes its own Kernel and is Fully isolated and Secure by Design!
+
+## Diffrences between Stealify and ECMAScript tc39 and TypeScript
+Not all Design Fundamentals of tc39 are relevant for us and they are also not usefull for developers thats why we only introduce a subset of the ECMAScript Specification in general the main diffrence is ECMAScript Specification Designs a Other Language Execution Environment then Stealify does
+ECMAScript gets executed in a so called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so called Runtimes. A Stealify Runtime by Specification is simply something build out of the v8 Source Implementing at last a SubSet of the v8 Source and use a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
 
 ## Repository Design
 - https://github.com/stealify-backports === stakeholders

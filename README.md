@@ -1,23 +1,38 @@
 # @stealify/stealify
-The shortest expressiv description is that Stealify Lang is a GraalVM Compitor at present build mainly with c++, Rust, Asm Running via v8.
+The shortest expressive description is that Stealify Lang is a GraalVM Competitor at present built mainly with c++, Rust, and Asm Running via v8.
 
-## Diffrences between Stealify Lang ruunning on StealifyVM and GraalVM
-- GraalVM is Mainly build using the JVM Platform Stealify uses v8 and the Chromium Project.
+## Differences between Stealify Lang running on StealifyVM and GraalVM
+- GraalVM is Mainly built using the JVM Platform Stealify uses v8 and the Chromium Project.
 - Both got InterOp via Multiple Interfaces.
-- Stealify as it uses a ECMAScript / TypeScript Compatible Syntax often works without Refactoring or even compiling the code again in diffrent Environments.
+- Stealify as it uses an ECMAScript / TypeScript Compatible Syntax often works without Refactoring or even compiling the code again in different Environments.
 - Stealify Not Only Includes what GraalVM Includes:
   - Offers Advanced Packaging / Maintainance / Development and other LifeCycle Systems that are GraalVM Compatible. 
   - It is designed to write your Application Once and then minimize the need for changes.
-  - It can Produce GraalVM Powered Native Images as also can run GraalVM it self as it also includes a own Kernel/HAL/DBUS implementations.
-  - Offers tools to build binary compatible components that interact via well known and defined Protocols to eleminate Security Risks.
-  - It defines a Dynamic Language that can change behavior on Runtime or Build time so you code can run on any Architecture or Platform
+  - It can produce GraalVM Powered Native Images as also can run GraalVM it self as it also includes a own Kernel/HAL/DBUS implementations so we can Produce Native Binarys with or without graalvm out of Any Code Modular Shared.
+  - Offers tools to build binary compatible components that interact via well-known and defined Protocols to eliminate Security Risks.
+  - It defines a Dynamic Language that can change behavior on Runtime or Build time so your code can run on any Architecture or Platform
   - It defines a Universal Secure Isolated: Hardware / Software / Component Model.
-  - Inlcudes own Universal Kernel that does not even need to be Cross Platform Binary Compatible so is able to get Used as own Linux/Fuchsia/Android/Windows Kernel Abstraction that is able to build Custom Kernels and even Unikernels that you can directly deploy to your hardware
-  - Includes universal Deployment/CI to automate the above described Creation of Software that Includes its own Kernel and is Fully isolated and Secure by Design!
+  - Includes own Universal Kernel that does not even need to be Cross Platform Binary Compatible so can get Used as its own Linux/Fuchsia/Android/Windows Kernel Abstraction that can build Custom Kernels and even Unikernels that you can directly deploy to your hardware
+  - Includes universal Deployment/CI to automate the above-described Creation of Software that Includes its Kernel and is Fully isolated and Secure by Design!
 
-## Diffrences between Stealify and ECMAScript tc39 and TypeScript
-Not all Design Fundamentals of tc39 are relevant for us and they are also not usefull for developers thats why we only introduce a subset of the ECMAScript Specification in general the main diffrence is ECMAScript Specification Designs a Other Language Execution Environment then Stealify does
-ECMAScript gets executed in a so called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so called Runtimes. A Stealify Runtime by Specification is simply something build out of the v8 Source Implementing at last a SubSet of the v8 Source and use a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
+## Differences between Stealify and ECMAScript tc39 and TypeScript
+Not all Design Fundamentals of tc39 are relevant for us and they are also not useful for developers that's why we only introduce a subset of the ECMAScript Specification, in general, the main difference is ECMAScript Specification Designs an Other Language Execution Environment then Stealify does
+ECMAScript gets executed in a so-called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so-called Runtimes. A Stealify Runtime by Specification is simply something built out of the v8 Source Implementing, at last, a SubSet of the v8 Source and using a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
+
+## Feature Comparison
+|
+Feature Name | Feature Description | GraalVM Supports | GraalVM Details | Stealify VM Supports | Stealify VM Details |
+|------------| ------------------- | ---------------   | --------------- | -------------------- | -------- | 
+| Supports Polyglot Languages | What Languages can run on the VM | x | All Languages that got a Implementation using the Java Written Truffle Framework and all Java Bytecode based Languages | x | All Languages as working with raw ASM on the Lowest Level
+| Hardware Support | | depends on if there exists a GraalVM Enabled OpenJDK Build that Supports the Targeted Hardware or Not | Supports Building a Component Based Kernel that is Adjustable for diffrent hardware|
+| 
+
+
+## Developer Features
+Code faster and execute that code in Multiple Environments running on diffrent Platform and Arch without Recoding.
+Implement Your Own Isolated Secure Platforms and Environments for Desktop and Embedded no limits out of the Best Open Source Tools. While Not Blocking your from using Closed Source.
+
+
 
 ## Repository Design
 - https://github.com/stealify-backports === stakeholders
@@ -52,7 +67,7 @@ Capability based offers Pre/post conditions for invocation/call protocol think a
 ### So how does it work?
 Stealify analyzes, caches and distributes builds, as also offers you advanced code generation out of existing Source Code and or Artifacts.
 
-Stealify is proud to be part of the community of passionate developers who contribute to Chromium and all its Related Projects like: Android, Fuchsia, v8, TuruboFan, LLVM, CodeStubAssembler, Bazel, GN, Ninja, CMake, npm
+Stealify is proud to be part of the community of passionate developers who contribute to Chromium and all its Related Projects like: Android, Fuchsia, v8, TuruboFan, LLVM, CodeStubAssembler, Bazel, GN, Ninja, CMake
 
 Our Mission is to Reduce the Overlapp between all that Projects and allow it to cross platform build and use the Projects. We do so by moving Project
 indipendent Parts into a Isolated Typed Callable State and in that step we evaluate rules for build tools to get code Generated to Automate that process.
@@ -72,6 +87,7 @@ TechnicalDebt is a measure of how untidy or out-of-date the development work are
 
 ## Current Goals
 Support all ECMAScript Engines on All Platforms. And Offer a Universal platform indipendent Fuchsia OS Compatible Component System that byPasses OS Vendor Stores and lock-ins in a secure way. Short Version Create Interface Definitions for Common Software that allows writting Platform and Arch Agnostic Source that offers a pre compiled binary client that you can use in your software this way your Main Code does never need to change when the Platform or Arch changes where it gets build and runned reduces Testing and Development time.
+- [ ] Adjust the TC39 Processes and Create a Stealify Process.
 - [ ] Implementation of a Uinversal ABI based Build System for ECMAScript Engines
   - [ ] Generator for GraalVM generates .d.ts files as also .js files containing Java.type('java.io.File')
   - [ ] Bazel (Java) interOp (Android Build)

@@ -106,3 +106,25 @@ Support all ECMAScript Engines on All Platforms. And Offer a Universal platform 
 
 ## WiP
 - [ ] - Getting The GitHub Orgs Cleaned eg: stealify-backports, stealify in shape and automated as also clean up and automate.
+
+## Current Repos!
+- [ ] @stealify/rollup
+- [ ] @stealify/create 
+- [ ] @stealify/electron - @stealify/gui-electron wrapper designed as drop in replacement.
+- [ ] @stealify/nwjs - @stealify/gui-nwjs wrapper designed as drop in replacement.
+- [ ] @stealify/gui - like Electron & NWJS but decoupled NodeJS from Chromium also offers a hugh collection of Tooling for other gui kits.
+- [ ] @stealify/puppeteer
+- [ ] @stealify/npm
+- [ ] @stealify/nodejs
+- [ ] @stealify/get - Helps to get files downloaded 
+- [ ] @stealify/devtools-protocol - @stealify/gui-electron wrapper designed as drop in replacement.
+- [ ] @stealify/graalvm - Toolchain for GraalVM
+- [ ] @stealify/browser - Toolchains for diffrent Browsers and Test Frameworks uses @stealify/puppeteer @stealify/playwright
+- [ ] @stealify/vscode - Toolchains and Frameworks uses @stealify/theia @stealify/codium 
+- [ ] @stealify/linux - Source code to build diffrent linux distributions in a custom way like windriver but more maintainable.
+- [ ] @stealify/chromium - Source code to stealify chromium
+- [ ] @stealify/fuchsia - Source code to stealify fuchsia
+- [ ] @stealify/android - Source code to stealify fuchsia
+- [ ] @stealify/vm - v8 stealify tooling. as also
+- [ ] @stealify/component-manager - Everything to Manage Stealify components (packages)
+

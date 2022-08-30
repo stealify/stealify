@@ -1,6 +1,14 @@
 # @stealify/stealify
 The shortest expressive description is that Stealify Lang is a GraalVM Competitor at present built mainly with c++, Rust, and Asm Running via v8.
 
+Stealify unlike others is Feature Complet in terms of it is a Full Software Stack that can run on near any possible Hardware and it contains tools to Adopt and Maintain new Hardware. It is Hard to Label it so we think that taking it as a component system that is able to build Cross Platform Apps is the most easy description that i can come up with. 
+
+## Usage
+Download the stealify-package-manager for your Current Operating System. It will help you to Configure and deploy a stealify-component-manager.
+The Component Manager is the Heart of the System it takes your Configurations and Packages and turns them into Components that do run as desired on the target Machine or your local one. The Component Manager routes the hardware Capabilitys to the Components so every Component runs fully Isolated.
+
+use it to create a stealify deployment for your needs read the user and developer guides. As a User or Developer it is importent to understand the Fundamentals. For Example Stealify is 100% Component based and favors Composition over Inharitance. Every Component should do only one thing. While there can be Components composed out of many Components that do one Thing! You can always define rules for sharing Data between components think about it like the share this button on Webpages or in Android.
+
 ## Differences between Stealify Lang running on StealifyVM and GraalVM
 - GraalVM is Mainly built using the JVM Platform Stealify uses v8 and the Chromium Project.
 - Both got InterOp via Multiple Interfaces.
@@ -14,6 +22,8 @@ The shortest expressive description is that Stealify Lang is a GraalVM Competito
   - It defines a Universal Secure Isolated: Hardware / Software / Component Model.
   - Includes own Universal Kernel that does not even need to be Cross Platform Binary Compatible so can get Used as its own Linux/Fuchsia/Android/Windows Kernel Abstraction that can build Custom Kernels and even Unikernels that you can directly deploy to your hardware
   - Includes universal Deployment/CI to automate the above-described Creation of Software that Includes its Kernel and is Fully isolated and Secure by Design!
+  - In general GraalVM even when it is the most feature Complet Compitor is still only a additional target that you can turn into Stealify Components.
+    - Importent to say while you could also run Stealifys Core Components on GraalVM it only adds overhaead but when you run GraalVM with Stealify you get the best out of both worlds. 
 
 ## Differences between Stealify and ECMAScript tc39 and TypeScript
 Not all Design Fundamentals of tc39 are relevant for us and they are also not useful for developers that's why we only introduce a subset of the ECMAScript Specification, in general, the main difference is ECMAScript Specification Designs an Other Language Execution Environment then Stealify does

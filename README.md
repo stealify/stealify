@@ -30,11 +30,10 @@ Not all Design Fundamentals of tc39 are relevant for us and they are also not us
 ECMAScript gets executed in a so-called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so-called Runtimes. A Stealify Runtime by Specification is simply something built out of the v8 Source Implementing, at last, a SubSet of the v8 Source and using a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
 
 ## Feature Comparison
-|
-Feature Name | Feature Description | GraalVM Supports | GraalVM Details | Stealify VM Supports | Stealify VM Details |
+|Feature Name | Feature Description | GraalVM Supports | GraalVM Details | Stealify VM Supports | Stealify VM Details |
 |------------| ------------------- | ---------------   | --------------- | -------------------- | -------- | 
 | Supports Polyglot Languages | What Languages can run on the VM | x | All Languages that got a Implementation using the Java Written Truffle Framework and all Java Bytecode based Languages | x | All Languages as working with raw ASM on the Lowest Level
-| Hardware Support | | depends on if there exists a GraalVM Enabled OpenJDK Build that Supports the Targeted Hardware or Not | Supports Building a Component Based Kernel that is Adjustable for diffrent hardware|
+| Hardware Support | arch platform support  | x86, x64, arm (experimental) many more named a few | depends on if there exists a GraalVM Enabled OpenJDK Build that Supports the Targeted Hardware or Not | all known even embedded | Supports Building a Component Based Kernel that is Adjustable for diffrent hardware |
 | 
 
 

@@ -9,7 +9,7 @@ npm i stealify
 ```
 
 ```js
-const { runEffects, map, tap, createAdapter, scheduler: newDefaultScheduler } = import("stealify");
+const { runEffects, map, tap, createAdapter, scheduler: { newDefaultScheduler }} = import("stealify");
 
 // returns push function and target stream
 // takes events from from any event source or stream.

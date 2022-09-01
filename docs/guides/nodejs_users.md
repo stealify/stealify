@@ -4,11 +4,11 @@ If you got NodeJS Installed we can use that as source Platform to bootstrap the 
 ## Usage with PNPM / NPM / YARN
 Put it into your stack of Available modules
 
-```
+```shell
 npm i stealify
 ```
 
-```
+```js
 const { runEffects, map, tap, createAdapter, scheduler: newDefaultScheduler } = import("stealify");
 
 // returns push function and target stream

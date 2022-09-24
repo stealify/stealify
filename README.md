@@ -1,7 +1,13 @@
-# @stealify/stealify
-The shortest expressive description is that Stealify Lang is a GraalVM Competitor at present built mainly with c++, Rust, and Asm Running via v8.
+# @stealify/stealify 
 
-Stealify unlike others is Feature Complet in terms of it is a Full Software Stack that can run on near any possible Hardware and it contains tools to Adopt and Maintain new Hardware. It is Hard to Label it so we think that taking it as a component system that is able to build Cross Platform Apps is the most easy description that i can come up with. 
+- [@stealify/lang](https://github.com/stealify/lang) - Universal Lanaguage Framework and Tooling integrations for GraalVM/LLVM/GCC
+- @stealify/os - Operating System that allows you to define and run Confined Desktop Environments using Stealify Lang.
+- @stealify/hardware - LowLevel (Interupt Based) Hardware abstraction layer for @stealify/os/kernel
+- @stealify/b8g - A Small Runtime and Runtime Builder for Stealify Lang, Typescript, ECMAScript.
+- @stealify/browser - Everything related to existing browsers as also Stealify Lang instructions to build own Web-interoperable Runtimes
+- @stealify/desktop - Integrations for diffrent Desktop Implementations running on diffrent Operating Systems and Platforms.
+- @stealify/platform - Integrations for diffrent Platforms like Clouds and Containers OS Services Init handlers
+- @stealify/ide - Integrations for diffrent IDE's as also Stealify Lang instructions to build own IDE's.
 
 ## Usage
 Download the stealify-package-manager for your Current Operating System. It will help you to Configure and deploy a stealify-component-manager.

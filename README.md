@@ -1,5 +1,6 @@
 # @stealify/stealify 
-
+- [@stealify/VSStudio](https://github.com/stealify/vsstudio) - A New Way to Create Applications and Operating Systems as also Virtual Machines.
+- [@stealify/VSStream](https://github.com/stealify/vsstudio) - A Visual Studio Code and Visual Stealify Studio Compatible Image processing and Streaming Integration. VS handels the Text Processing while VSStream Handels the Image and Audio Processing it includes bindings for gstreamer and ffmpeg.
 - [@stealify/lang](https://github.com/stealify/lang) - Universal Lanaguage Framework and Tooling integrations for GraalVM/LLVM/GCC
 - @stealify/os - Operating System that allows you to define and run Confined Desktop Environments using Stealify Lang.
 - @stealify/hardware - LowLevel (Interupt Based) Hardware abstraction layer for @stealify/os/kernel

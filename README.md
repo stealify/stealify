@@ -1,6 +1,20 @@
 # @stealify/stealify 
-- [@stealify/VSStudio](https://github.com/stealify/vsstudio) - A New Way to Create Applications and Operating Systems as also Virtual Machines.
-- [@stealify/VSStream](https://github.com/stealify/vsstudio) - A Visual Studio Code and Visual Stealify Studio Compatible Image processing and Streaming Integration. VS handels the Text Processing while VSStream Handels the Image and Audio Processing it includes bindings for gstreamer and ffmpeg.
+New Positioning the Modular Event Stream Task Driven Component System where a Component gets defined out of Modules and Functions that get combined with a scheduler into a Task that gets executed inside a component and a component can pass partial capabilitys and handels via creating additional Tasks a Task is by definition a Stream so it can Interact and also be combined with other Tasks. 
+
+a module can consist out of any code and can be build via any build tool while we created rollup-stealify to use rollup and ECMAScript or stealify lang as also Typescript to build modules out of C, C++ , Rust, WASM Source this Modules can then be directly build via rollup-stealify again into Runtimes or stealify fifo fdo builds depending on the amount of interfaces that you need also capn is supported with http3 and webrtc support as also http2
+
+The Main Diffrence between a Component and a Module is that a Component is a Sink and Runner While a Module contains only out of src code to create components or Tasks for Components. Modules are Language Agnostic as a Concept of Stealify while Components always offer Binary Interfaces as they need to execute Code. Components mostly get triggered by events that get created by the Tasks that compose the Component
+
+you can think about a component as indipendent runtime that can use multiple CPU cores but can also use only a single one dependening on your need on the high level everything is a component you software gets composed out of many components that are linked via the Tasks that they run and That are able to talk cross boundary. A Task holds all its internal links and is able to own parts of the component that creates the Task
+
+a Task can be defined in a Module but can only get Created by a Component while a Component can run Tasks that are Composed out of one or many Modules. 
+
+Tasks are simply scheduled functions they are default scheduled to get executed directly but you can implement flow control via diffrent schedulers. The Component that then gets the Task can define Tasks that should happen on diffrent conditions or events of the Tasks reminder they are Streams so you can do Transforms or you can write and read them.
+
+Support for Managed Key Infrastructure is WiP you can use existing solutions. 
+
+- [@stealify/VSStudio](https://github.com/stealify/vsstudio) - VSStudio Visual Stealify Studio - A New Way to Create Applications and Operating Systems as also Virtual Machines.
+- [@stealify/VSStream](https://github.com/stealify/vsstudio) - A Visual Studio Code and Visual Stealify Studio Compatible Image / Audio processing and Streaming Integration and Multimedia Studio Implementation. VS handels the Text Processing while VSStream Handels the Image and Audio Processing it includes bindings for gstreamer and ffmpeg as also OS Platform dependent Modules to create Multimedia Components.
 - [@stealify/lang](https://github.com/stealify/lang) - Universal Lanaguage Framework and Tooling integrations for GraalVM/LLVM/GCC
 - @stealify/os - Operating System that allows you to define and run Confined Desktop Environments using Stealify Lang.
 - @stealify/hardware - LowLevel (Interupt Based) Hardware abstraction layer for @stealify/os/kernel
@@ -16,23 +30,7 @@ The Component Manager is the Heart of the System it takes your Configurations an
 
 use it to create a stealify deployment for your needs read the user and developer guides. As a User or Developer it is importent to understand the Fundamentals. For Example Stealify is 100% Component based and favors Composition over Inharitance. Every Component should do only one thing. While there can be Components composed out of many Components that do one Thing! You can always define rules for sharing Data between components think about it like the share this button on Webpages or in Android.
 
-## Differences between Stealify Lang running on StealifyVM and GraalVM
-- GraalVM is Mainly built using the JVM Platform Stealify uses v8 and the Chromium Project.
-- Both got InterOp via Multiple Interfaces.
-- Stealify as it uses an ECMAScript / TypeScript Compatible Syntax often works without Refactoring or even compiling the code again in different Environments.
-- Stealify Not Only Includes what GraalVM Includes:
-  - Offers Advanced Packaging / Maintainance / Development and other LifeCycle Systems that are GraalVM Compatible. 
-  - It is designed to write your Application Once and then minimize the need for changes.
-  - It can produce GraalVM Powered Native Images as also can run GraalVM it self as it also includes a own Kernel/HAL/DBUS implementations so we can Produce Native Binarys with or without graalvm out of Any Code Modular Shared.
-  - Offers tools to build binary compatible components that interact via well-known and defined Protocols to eliminate Security Risks.
-  - It defines a Dynamic Language that can change behavior on Runtime or Build time so your code can run on any Architecture or Platform
-  - It defines a Universal Secure Isolated: Hardware / Software / Component Model.
-  - Includes own Universal Kernel that does not even need to be Cross Platform Binary Compatible so can get Used as its own Linux/Fuchsia/Android/Windows Kernel Abstraction that can build Custom Kernels and even Unikernels that you can directly deploy to your hardware
-  - Includes universal Deployment/CI to automate the above-described Creation of Software that Includes its Kernel and is Fully isolated and Secure by Design!
-  - In general GraalVM even when it is the most feature Complet Compitor is still only a additional target that you can turn into Stealify Components.
-    - Importent to say while you could also run Stealifys Core Components on GraalVM it only adds overhaead but when you run GraalVM with Stealify you get the best out of both worlds. 
-
-## Differences between Stealify and ECMAScript tc39 and TypeScript
+## Differences between Stealify Lang and ECMAScript tc39 and TypeScript
 Not all Design Fundamentals of tc39 are relevant for us and they are also not useful for developers that's why we only introduce a subset of the ECMAScript Specification, in general, the main difference is ECMAScript Specification Designs an Other Language Execution Environment then Stealify does
 ECMAScript gets executed in a so-called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so-called Runtimes. A Stealify Runtime by Specification is simply something built out of the v8 Source Implementing, at last, a SubSet of the v8 Source and using a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
 
@@ -47,8 +45,6 @@ ECMAScript gets executed in a so-called ECMAScript Engine and Stealify does get 
 ## Developer Features
 Code faster and execute that code in Multiple Environments running on diffrent Platform and Arch without Recoding.
 Implement Your Own Isolated Secure Platforms and Environments for Desktop and Embedded no limits out of the Best Open Source Tools. While Not Blocking your from using Closed Source.
-
-
 
 ## Repository Design
 - https://github.com/stealify-backports === stakeholders

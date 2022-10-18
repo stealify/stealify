@@ -5,4 +5,5 @@
  * a component is a sink that takes Tasks as input.
  * ((tasks)=>tasks.map(t=>t()))([()=>`task1`,()=>`task2`]) // executing tasks serial
  * in general as components are a nested concept components get created via higher level components.
+ * a Component is equal to a Service or Server in general. We call everything that runs a Component.
  */

@@ -1,5 +1,7 @@
 # @stealify/stealify 
-New Positioning the Modular Event Stream Task Driven Component System where a Component gets defined out of Modules and Functions that get combined with a scheduler into a Task that gets executed inside a component and a component can pass partial capabilitys and handels via creating additional Tasks a Task is by definition a Stream so it can Interact and also be combined with other Tasks. 
+Stealify is a ECMAScript Runtime or VM as also it acts as its own Runtime or VM Builder using its own Opinionated Concepts and Fundamentals
+
+which is a Modular Event Stream Task Driven Component System where a Component gets defined out of Modules and Functions that get combined with a Scheduler into a Task that gets executed inside a component and a component can pass partial capabilitys and handels via creating additional Tasks a Task is by definition a Stream so it can Interact and also be combined with other Tasks. 
 
 a module can consist out of any code and can be build via any build tool while we created rollup-stealify to use rollup and ECMAScript or stealify lang as also Typescript to build modules out of C, C++ , Rust, WASM Source this Modules can then be directly build via rollup-stealify again into Runtimes or stealify fifo fdo builds depending on the amount of interfaces that you need also capn is supported with http3 and webrtc support as also http2
 
@@ -17,30 +19,30 @@ Support for Managed Key Infrastructure is WiP you can use existing solutions.
 - [@stealify/VSStream](https://github.com/stealify/vsstudio) - A Visual Studio Code and Visual Stealify Studio Compatible Image / Audio processing and Streaming Integration and Multimedia Studio Implementation. VS handels the Text Processing while VSStream Handels the Image and Audio Processing it includes bindings for gstreamer and ffmpeg as also OS Platform dependent Modules to create Multimedia Components.
 - [@stealify/lang](https://github.com/stealify/lang) - Universal Lanaguage Framework and Tooling integrations for GraalVM/LLVM/GCC
 - @stealify/os - Operating System that allows you to define and run Confined Desktop Environments using Stealify Lang.
-- @stealify/hardware - LowLevel (Interupt Based) Hardware abstraction layer for @stealify/os/kernel
-- @stealify/b8g - A Small Runtime and Runtime Builder for Stealify Lang, Typescript, ECMAScript.
+- @stealify/hardware - LowLevel (Interupt Based) Hardware abstraction layer for @stealify/os/kernel components, tasks, modules
+- @stealify/webplatform 
+- @stealify/image-processing - low level driver implementation modules and tasks to implement graphics drivers for AMD, INTEL, NVIDIA a Mesa3D Successor. integrating also a x11 and wayland, mir successor called AsteriskGL
+- @stealify/display-manager - component:display-manager the display manager component of stealify.
+- @stealify/b8g - Big Engine - a component to run mksnapshot binarys as also later a replacement for v8.
 - @stealify/browser - Everything related to existing browsers as also Stealify Lang instructions to build own Web-interoperable Runtimes
 - @stealify/desktop - Integrations for diffrent Desktop Implementations running on diffrent Operating Systems and Platforms.
 - @stealify/platform - Integrations for diffrent Platforms like Clouds and Containers OS Services Init handlers
 - @stealify/ide - Integrations for diffrent IDE's as also Stealify Lang instructions to build own IDE's.
 
 ## Usage
-Download the stealify-package-manager for your Current Operating System. It will help you to Configure and deploy a stealify-component-manager.
+Download the stealify binary or boot/start a stealify component-manager for your Current Operating System.
 The Component Manager is the Heart of the System it takes your Configurations and Packages and turns them into Components that do run as desired on the target Machine or your local one. The Component Manager routes the hardware Capabilitys to the Components so every Component runs fully Isolated.
+the main module that the core component-manager exposes is runTasks 
 
-use it to create a stealify deployment for your needs read the user and developer guides. As a User or Developer it is importent to understand the Fundamentals. For Example Stealify is 100% Component based and favors Composition over Inharitance. Every Component should do only one thing. While there can be Components composed out of many Components that do one Thing! You can always define rules for sharing Data between components think about it like the share this button on Webpages or in Android.
+# Understand the Fundamentals. 
+Stealify is 100% Component based and favors Composition over Inharitance. Every Component should do only one thing. While there can be Components composed out of many Components that do one Thing! You can always define rules for sharing Data between components think about it like the share this button on Webpages or in Android.
 
 ## Differences between Stealify Lang and ECMAScript tc39 and TypeScript
 Not all Design Fundamentals of tc39 are relevant for us and they are also not useful for developers that's why we only introduce a subset of the ECMAScript Specification, in general, the main difference is ECMAScript Specification Designs an Other Language Execution Environment then Stealify does
 ECMAScript gets executed in a so-called ECMAScript Engine and Stealify does get executed on ECMAScript and Stealify Language Execution Environments so-called Runtimes. A Stealify Runtime by Specification is simply something built out of the v8 Source Implementing, at last, a SubSet of the v8 Source and using a Subset of the v8 Build tools Combined with the Stealify Source and Build tools.
 
-## Feature Comparison
-|Feature Name | Feature Description | GraalVM Supports | GraalVM Details | Stealify VM Supports | Stealify VM Details |
-|------------| ------------------- | ---------------   | --------------- | -------------------- | -------- | 
-| Supports Polyglot Languages | What Languages can run on the VM | x | All Languages that got a Implementation using the Java Written Truffle Framework and all Java Bytecode based Languages | x | All Languages as working with raw ASM on the Lowest Level
-| Hardware Support | arch platform support  | x86, x64, arm (experimental) many more named a few | depends on if there exists a GraalVM Enabled OpenJDK Build that Supports the Targeted Hardware or Not | all known even embedded | Supports Building a Component Based Kernel that is Adjustable for diffrent hardware |
-| 
-
+## But can it run Minecraft? 
+Yes it can Stealify supports all guess able JVM Interfaces as also can Act as JVM so it can run Java Bytecode.
 
 ## Developer Features
 Code faster and execute that code in Multiple Environments running on diffrent Platform and Arch without Recoding.

@@ -5,8 +5,9 @@ which is a Modular Event Stream Task Driven Component System where a Component g
 
 
 ## Modlet Workflow
-The most successfull efficent important, development strategie was the introduction of the "modlet" workflow. It's a very simple concept - every module should be developed as its own application. In practice, this means that instead of a folder structure where files are grouped by type like:
+The most successfull efficent important, development strategie was the introduction of the "modlet structure" workflow. It's a very simple concept - every module should be developed as its own application. In practice, this means that instead of a folder structure where files are grouped by type like:
 
+```
 project/
   js/
     moduleA.js
@@ -23,17 +24,18 @@ project/
   docs/
     moduleA.markdown
     moduleB.markdown
+```
 
 A "modlet" groups files by the module they belong to:
-
+```
 project/
   moduleA/
     moduleA.js
     moduleA.handlebars
     moduleA.css
-    moduleA_test.js
+    moduleA.test.js
     moduleA.markdown
-    moduleA.html
+    moduleA.html // Client side JS Gets shipped also here!
     moduleA.cpp
     moduleA.h
     moduleA.build.js
@@ -42,20 +44,20 @@ project/
     moduleB.js
     moduleB.handlebars
     moduleB.css
-    moduleB_test.js
+    moduleB.test.js
     moduleB.markdown
-    moduleB.html
+    moduleB.html // Client side JS Gets shipped also here!
     moduleB.cpp
     moduleB.h
     moduleB.build.js
     test.html
-
+```
 Each module has a folder with all of its supporting files, tests, and documentation. Additionally, we add:
 
-A demo page (moduleA.html) that shows off the modules functionality if the module has a visual representation.
-A test page (test.html) that runs just the module's tests.
-Benefits
-In my experience, this workflow / folder structure provides the following benefits:
+- A demo page (moduleA.html) that shows off the modules functionality if the module has a visual representation.
+- A test page (test.html) that runs just the module's tests.
+
+This workflow / folder structure provides the following benefits:
 
 - enforces good API design and separation of concerns. By writing a demo page, you might discover that it's difficult to setup your module without a lot of bootstrapping. This might be an indication that something is wrong.
 - Developers are more likely to update tests and documentation if they are sitting right next to the module they are editing. The test is not hidden away in some tests folder that is more easily ignored.

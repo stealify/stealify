@@ -16,7 +16,8 @@ And last rule if you run a Module Inside a Component that also gets a Task becau
 stealify compile static your_new_module_based_component.js
 ```
 
-
+- web-components: module =>  element => task defineComponent => component that runs when element comes into the dom custom-element
+- stealify-component: module => task => component that runs based on its Scheduler when the component gets loaded by a other component
 
 
 ## Concepts

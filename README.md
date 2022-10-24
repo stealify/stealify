@@ -3,6 +3,65 @@ Stealify is a ECMAScript Runtime or VM as also it acts as its own Runtime or VM 
 
 which is a Modular Event Stream Task Driven Component System where a Component gets defined out of Modules and Functions that get combined with a Scheduler into a Task that gets executed inside a component and a component can pass partial capabilitys and handels via creating additional Tasks a Task is by definition a Stream so it can Interact and also be combined with other Tasks. 
 
+
+## Modlet Workflow
+The most successfull efficent important, development strategie was the introduction of the "modlet" workflow. It's a very simple concept - every module should be developed as its own application. In practice, this means that instead of a folder structure where files are grouped by type like:
+
+project/
+  js/
+    moduleA.js
+    moduleB.js
+  templates/
+    moduleA.handlebars
+    moduleB.handlebars
+  css/
+    moduleA.css
+    moduleB.less
+  test/
+    moduleA_test.js
+    moduleB_test.js
+  docs/
+    moduleA.markdown
+    moduleB.markdown
+
+A "modlet" groups files by the module they belong to:
+
+project/
+  moduleA/
+    moduleA.js
+    moduleA.handlebars
+    moduleA.css
+    moduleA_test.js
+    moduleA.markdown
+    moduleA.html
+    moduleA.cpp
+    moduleA.h
+    moduleA.build.js
+    test.html
+ moduleB/
+    moduleB.js
+    moduleB.handlebars
+    moduleB.css
+    moduleB_test.js
+    moduleB.markdown
+    moduleB.html
+    moduleB.cpp
+    moduleB.h
+    moduleB.build.js
+    test.html
+
+Each module has a folder with all of its supporting files, tests, and documentation. Additionally, we add:
+
+A demo page (moduleA.html) that shows off the modules functionality if the module has a visual representation.
+A test page (test.html) that runs just the module's tests.
+Benefits
+In my experience, this workflow / folder structure provides the following benefits:
+
+- enforces good API design and separation of concerns. By writing a demo page, you might discover that it's difficult to setup your module without a lot of bootstrapping. This might be an indication that something is wrong.
+- Developers are more likely to update tests and documentation if they are sitting right next to the module they are editing. The test is not hidden away in some tests folder that is more easily ignored.
+- It is easy to identify missing tests or documentation. If the test or documentation file is missing altogether, it's very easy to identify when they are in the same folder.
+- You can develop the application without having to load the entire application and all of its tests on every change.
+
 ## Example How to Compose C++
 Look into our linux modules in general you will write a buildScript with gulp or rollup or maybe even from scratch if it is a smaller project
 then you will include the module via gulp rollup or a Makefile anything existing that you got that you will configure to build shared with debug symbols

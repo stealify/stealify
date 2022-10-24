@@ -3,6 +3,23 @@ Stealify is a ECMAScript Runtime or VM as also it acts as its own Runtime or VM 
 
 which is a Modular Event Stream Task Driven Component System where a Component gets defined out of Modules and Functions that get combined with a Scheduler into a Task that gets executed inside a component and a component can pass partial capabilitys and handels via creating additional Tasks a Task is by definition a Stream so it can Interact and also be combined with other Tasks. 
 
+## Example How to Compose C++
+Look into our linux modules in general you will write a buildScript with gulp or rollup or maybe even from scratch if it is a smaller project
+then you will include the module via gulp rollup or a Makefile anything existing that you got that you will configure to build shared with debug symbols
+create some js glue code and or typescript and build it
+
+Rule of thumb when you run stealify compile you will always get what we call a Component no matter what is included into that. 
+When you compile something with a buildScript that does not at the end invoces stealify compile you created a Module no matter if you used any stealify code inside that when you create something that is a Valid ECMAScript Module you created a Stealify Module, When that contains Stealify Code eg: uses Stealify Schedulers your created a Task no matter if it is in a ECMAScript Module. 
+And last rule if you run a Module Inside a Component that also gets a Task because it gets a Scheduler Attached from the Component that Encapsulates the Component. Module + Scheduler = Task. Running Executing Code = Task. Who can execute Tasks? Right a Component!.
+
+```
+stealify compile static your_new_module_based_component.js
+```
+
+
+
+
+## Concepts
 a module can consist out of any code and can be build via any build tool while we created rollup-stealify to use rollup and ECMAScript or stealify lang as also Typescript to build modules out of C, C++ , Rust, WASM Source this Modules can then be directly build via rollup-stealify again into Runtimes or stealify fifo fdo builds depending on the amount of interfaces that you need also capn is supported with http3 and webrtc support as also http2
 
 The Main Diffrence between a Component and a Module is that a Component is a Sink and Runner While a Module contains only out of src code to create components or Tasks for Components. Modules are Language Agnostic as a Concept of Stealify while Components always offer Binary Interfaces as they need to execute Code. Components mostly get triggered by events that get created by the Tasks that compose the Component
